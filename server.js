@@ -64,7 +64,7 @@ app.put('/update',(req, res) => {
     res.status(200).json({"status" : "ok"});
 
     subscriptions.forEach(sub=>{
-        webPush.sendNotification(sub, pushedData)
+        webPush.sendNotification(sub, JSON.stringify(pushedData))
         .catch(error => console.error(error));
     });
 });
