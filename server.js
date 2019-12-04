@@ -14,8 +14,15 @@ const webPush = require('web-push');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+const https = require('https');
+const fs = require('fs');
 
-
+var key = fs.readFileSync(__dirname + '/selfsigned.key');
+var cert = fs.readFileSync(__dirname + '/selfsigned.crt');
+var options = {
+  key: key,
+  cert: cert
+};
 
 const app = express();
 
@@ -71,4 +78,9 @@ app.put('/update',(req, res) => {
 
 app.get('/data',(req, res) => {
     res.status(200).json(data);
+});
+
+var httpsServer = https.createServer(options, app);
+httpsServer.listen(5002, () => {
+  console.log("server starting on port : " + 5002)
 });
