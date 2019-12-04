@@ -14,7 +14,16 @@ const webPush = require('web-push');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+
+
+
 const app = express();
+
+var cors = require('cors')
+app.use(cors())
+
+var morgan = require('morgan')
+app.use(morgan('development'));
 
 app.use(bodyParser.json());
 
