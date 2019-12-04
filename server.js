@@ -34,9 +34,10 @@ app.use(morgan("dev"));
 
 
 app.use(bodyParser.urlencoded({
-  extended: true
+  extended: true,
+  limit: '50mb'
 }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 
 app.use(express.static(path.join(__dirname, "client")));
 
