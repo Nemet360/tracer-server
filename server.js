@@ -32,6 +32,10 @@ app.use(cors());
 var morgan = require("morgan");
 app.use(morgan("dev"));
 
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "client")));
@@ -73,7 +77,7 @@ app.get("/hello", (req, res) => {
 
 app.put("/update", (req, res) => {
   console.log('UPDATE');
-  console.log(JSON.stringify(req));
+  console.log(JSON.stringify(req.body));
   //console.log("got update request with body : " + JSON.stringify(req.body));
   let pushedData = {
     updateTime: new Date(),
