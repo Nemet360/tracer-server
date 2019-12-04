@@ -50,6 +50,7 @@ webPush.setVapidDetails(
 );
 
 app.post("/subscribe", (req, res) => {
+  console.log("SUBSCRIBE");
   const subscription = req.body;
 
   res.status(201).json({});
