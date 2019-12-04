@@ -5,9 +5,9 @@ const _ = require("underscore");
 let data = [];
 let subscriptions = [];
 
-var _data = require("./sampleData.json");
+//var _data = require("./sampleData.json");
 
-data.push({ updateTime: new Date(), event: "POI", data: _data });
+//data.push({ updateTime: new Date(), event: "POI", data: _data });
 
 const express = require("express");
 const webPush = require("web-push");
