@@ -72,7 +72,9 @@ app.get("/hello", (req, res) => {
 });
 
 app.put("/update", (req, res) => {
-  console.log("got update request with body : " + JSON.stringify(req.body));
+  console.log('UPDATE');
+  console.log(JSON.stringify(req));
+  //console.log("got update request with body : " + JSON.stringify(req.body));
   let pushedData = {
     updateTime: new Date(),
     event: req.body.event,
