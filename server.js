@@ -30,7 +30,7 @@ var cors = require("cors");
 app.use(cors());
 
 var morgan = require("morgan");
-app.use(morgan("development"));
+app.use(morgan("dev"));
 
 app.use(bodyParser.json());
 
@@ -72,7 +72,7 @@ app.get("/hello", (req, res) => {
 });
 
 app.put("/update", (req, res) => {
-  console.log("got update request with body : " + req.body);
+  console.log("got update request with body : " + JSON.stringify(req.body));
   let pushedData = {
     updateTime: new Date(),
     event: req.body.event,
